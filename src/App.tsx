@@ -91,17 +91,17 @@ function Video(props: VideoProps) {
 
 function List({ list }: ListProps) {
   return list.map((item, index) => {
-    let WrappedComponent
+    let WrapperComponent
     switch (item.type) {
       case 'video':
-        WrappedComponent = formatContent(Video, getContentByViews)
+        WrapperComponent = formatContent(Video, getContentByViews)
         break
       case 'article':
-        WrappedComponent = formatContent(Article, getContentByViews)
+        WrapperComponent = formatContent(Article, getContentByViews)
         break
     }
 
-    return <WrappedComponent key={item.url ?? item.title ?? index} {...item} />
+    return <WrapperComponent key={item.url ?? item.title ?? index} {...item} />
   })
 }
 
